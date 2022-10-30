@@ -32,4 +32,4 @@ THEN the saved events persist
 
 ====================================================================================================
 
-Homework Deployment URL is:
+Homework Deployment URL is: https://mindofdevelopment.github.io/Work-Day-Scheduler/

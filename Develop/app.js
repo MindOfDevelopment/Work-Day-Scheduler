@@ -17,7 +17,7 @@ $(() => {
     { time: "5 PM", event: "" },
   ];
 
-  // Load Data From Local Storage
+  // Load Data From Local Storage:
 
   let $data = JSON.parse(localStorage.getItem("planer_data"));
 
@@ -38,24 +38,22 @@ $(() => {
     }
   }
 
-  // 'Frontend' Part of Code
-
+  // 'Frontend' Part of Code:
   $.each($workingHours, (index, value) => {
     let $div = $("<div>", { class: "time-block", id: `${index}` });
-    let $content = `
-      <div class="row no-gutters input-group">
-        <div class="col-md-1 hour pt-3">${value.time}</div>
-        <textarea class="form-control description ${getTimeColor(
-          value.time
-        )}">${value.event}</textarea>
-        <button class="btn col-sm-2 col-lg-1 save-btn"><i class="far fa-save"></i></button>
-      </div>
-    `;
+    let $content = `<div class="row no-gutters input-group">
+    <div class="col-md-1 hour pt-3">${value.time}</div>
+    <textarea class="form-control description ${getTimeColor(value.time)}">${
+      value.event
+    }</textarea>
+    <button class="btn col-sm-2 col-lg-1 save-btn"><i class="far fa-save"></i></button>
+    </div>`;
+
     $div.html($content);
     $(".container").append($div);
   });
 
-  // Handle Save Button Click
+  // Handle Save Button Click:
   $(".save-btn").on("click", function (e) {
     let $blockIndex = Number($(e.target).closest(".time-block").attr("id"));
     let $eventText = $(e.target).parent().siblings("textarea").val();

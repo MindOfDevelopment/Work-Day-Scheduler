@@ -17,7 +17,8 @@ $(() => {
     { time: "5 PM", event: "" },
   ];
 
-  // load data from localstorage
+  // Load Data From Local Storage
+
   let $data = JSON.parse(localStorage.getItem("planer_data"));
 
   if ($data !== null) {
@@ -37,6 +38,8 @@ $(() => {
     }
   }
 
+  // 'Frontend' Part of Code
+
   $.each($workingHours, (index, value) => {
     let $div = $("<div>", { class: "time-block", id: `${index}` });
     let $content = `
@@ -52,7 +55,7 @@ $(() => {
     $(".container").append($div);
   });
 
-  // Handle save button click
+  // Handle Save Button Click
   $(".save-btn").on("click", function (e) {
     let $blockIndex = Number($(e.target).closest(".time-block").attr("id"));
     let $eventText = $(e.target).parent().siblings("textarea").val();
